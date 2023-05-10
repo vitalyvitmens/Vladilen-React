@@ -6,6 +6,7 @@ import { currentYear } from './index.js'
 // императивный стиль
 export const App = () => {
 	return (
+		// декларативный стиль
 		<div className="App">
 			<header className="App-header">
 				<img src={logo} className="App-logo" alt="logo" />
@@ -20,7 +21,7 @@ export const App = () => {
 				>
 					Learn React
 				</a>
-				<p className="year">{currentYear()}</p>
+				<div className="year">{currentYear()}</div>
 			</header>
 		</div>
 	)
