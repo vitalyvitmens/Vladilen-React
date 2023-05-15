@@ -1,5 +1,6 @@
 // декларативный стиль
 import logo from './logo.svg'
+import { MyComponent } from './component/MyComponent'
 import './App.css'
 import { currentYear } from './index.js'
 
@@ -22,6 +23,9 @@ export const App = () => {
 					Learn React
 				</a>
 				<div className="year">{currentYear()}</div>
+				<MyComponent type="normal" value="123" />
+				<MyComponent type="normal" value="123" />
+        {/* MyComponent({ type: 'normal', value: '123' }) */}
 			</header>
 		</div>
 	)
