@@ -1,5 +1,5 @@
 // декларативный стиль
-import logo from './logo.svg'
+// import logo from './logo.svg'
 import { MyComponent } from './component/MyComponent'
 import styles from './App.module.css'
 import { currentYear } from './index.js'
