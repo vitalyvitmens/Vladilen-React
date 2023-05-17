@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Fragment } from 'react'
+import styles from './MyComponent.module.css'
 
 const getValue = () => ' = 123'
 
@@ -35,8 +36,8 @@ export const MyComponent = (props) => {
 	}
 
 	const [showText, setShowText] = useState(true)
-	const clickShowText = () => setShowText(!showText)
-  const text = <div>Текст</div>
+	const fnShowText = () => setShowText(!showText)
+	const text = <div>Текст</div>
 
 	if (obj.a === 10) {
 		setObj({ ...obj, a: 20 })
@@ -55,6 +56,14 @@ export const MyComponent = (props) => {
 		console.log(currentDate)
 		console.log(currentNumber)
 	}, [])
+
+	const [showRedText, setShowRedText] = useState(false)
+	const fnShowRedWhiteText = () => {
+		setShowRedText(!showRedText)
+	}
+	const textRedWhite = (
+		<div className={showRedText ? styles.red : styles.white}>Текст</div>
+	)
 
 	return (
 		<Fragment>
@@ -95,15 +104,17 @@ export const MyComponent = (props) => {
 				>
 					Прибавить + 10 х 3
 				</button>
-        <>
-				<p style={{ fontWeight: 'bold', fontSize: '30px', color: 'green' }}>{showText && text}</p>
-				<button
-					onClick={clickShowText}
-					style={{ fontWeight: 'bold', fontSize: '20px' }}
-				>
-					{showText ? 'Скрыть' : 'Показать'}
-				</button>
-        </>
+				<>
+					<div style={{ fontWeight: 'bold', fontSize: '30px', color: 'green' }}>
+						{showText && text}
+					</div>
+					<button
+						onClick={fnShowText}
+						style={{ fontWeight: 'bold', fontSize: '20px' }}
+					>
+						{showText ? 'Скрыть' : 'Показать'}
+					</button>
+				</>
 				<ul onClick={clickProgrammingLanguages}>
 					{programmingLanguages.map(({ id, name }) => (
 						<li
@@ -118,6 +129,8 @@ export const MyComponent = (props) => {
 						</li>
 					))}
 				</ul>
+					{textRedWhite}
+					<button onClick={fnShowRedWhiteText}>{showRedText ? 'Изменить цвет на белый и уменьшить размер текста' : 'Изменить цвет на красный и увеличить размер текста'}</button>
 			</div>
 		</Fragment>
 	)
